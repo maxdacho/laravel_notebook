@@ -9,6 +9,6 @@ class NotebooksController extends Controller
 {
     public function index(){
         $notebooks=Notebook::all();
-        return $notebooks;
+        return view('notebooks.index',compact('notebooks'));
     }
 }

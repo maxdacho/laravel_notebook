@@ -15,42 +15,22 @@
   <button class="btn btn-success">Notizbuch anlegen</button>
 </div>
 
+
 <div class="container col-9 my-5" style="display:flex; justify-content:space-between">
+@foreach($notebooks as $notebook) 
 <div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
-<a href="">  
-Notebook 1
-</a>
+<h1>
+{{$notebook->name}}
+</h1>
   <br>
     <button class="btn btn-primary">Edit</button>
     <button class="btn btn-danger">Delete</button>
 </div>
-
-<div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
-<a href="">
-Notebook 2
-</a>
-<br>
-  <button class="btn btn-primary">Edit</button>
-  <button class="btn btn-danger">Delete</button>
+@endforeach
 </div>
 
-<div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
-<a href="">
-Notebook 3
-</a>
-<br>
-  <button class="btn btn-primary">Edit</button>
-  <button class="btn btn-danger">Delete</button>
-</div>
 
-<div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
-<a href="">
-Notebook 4
-</a>
-<br>
-  <button class="btn btn-primary">Edit</button>
-  <button class="btn btn-danger">Delete</button>
-</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>
