@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',function(){
-    return view('frontpage');
+Route::get('/landingpage',function(){
+    return view('landingpage');
+});
+
+Route::get('/index-notebooks', function(){
+    return view('notebooks/index-notebooks');
+});
+
+Route::get('/notes',function(){
+    return view('notes/notes');
 });

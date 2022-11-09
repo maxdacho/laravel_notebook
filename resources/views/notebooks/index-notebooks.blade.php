@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Notebook App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
@@ -17,28 +17,36 @@
 
 <div class="container col-9 my-5" style="display:flex; justify-content:space-between">
 <div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
-  Notebook 1
+<a href="">  
+Notebook 1
+</a>
   <br>
     <button class="btn btn-primary">Edit</button>
     <button class="btn btn-danger">Delete</button>
 </div>
 
 <div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
+<a href="">
 Notebook 2
+</a>
 <br>
   <button class="btn btn-primary">Edit</button>
   <button class="btn btn-danger">Delete</button>
 </div>
 
 <div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
+<a href="">
 Notebook 3
+</a>
 <br>
   <button class="btn btn-primary">Edit</button>
   <button class="btn btn-danger">Delete</button>
 </div>
 
 <div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
+<a href="">
 Notebook 4
+</a>
 <br>
   <button class="btn btn-primary">Edit</button>
   <button class="btn btn-danger">Delete</button>
