@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NotebooksController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,7 @@ Route::get('/landingpage',function(){
     return view('landingpage');
 });
 
-Route::get('/index-notebooks', function(){
-    return view('notebooks/index-notebooks');
-});
+Route::get('/notebooks', [NotebooksController::class, 'index']);
 
 Route::get('/notes',function(){
     return view('notes/notes');
