@@ -11,4 +11,8 @@ class NotebooksController extends Controller
         $notebooks=Notebook::all();
         return view('notebooks.index',compact('notebooks'));
     }
+
+    public function create(){
+        return view('notebooks.createNotebook');
+    }
 }
