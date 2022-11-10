@@ -23,7 +23,9 @@
 {{$notebook->name}}
 </h1>
   <br>
+  <a href="/notebooks/{{$notebook->id}}">
     <button class="btn btn-primary">Edit</button>
+</a>
     <button class="btn btn-danger">Delete</button>
 </div>
 @endforeach

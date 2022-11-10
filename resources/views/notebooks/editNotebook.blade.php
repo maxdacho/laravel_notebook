@@ -11,12 +11,13 @@
     <h1>Laravel Notebook App</h1>
 </div>
 <div class="container col-9 my-5">
-<h1>Ein neues Notizbuch erstellen</h1>
-<form action="/notebooks" method="POST">
+<h1>Notizbuch bearbeiten</h1>
+<form action="/notebooks/{{$notebook->id}}" method="POST">
   {{csrf_field()}}
+  {{method_field('PUT')}}
     <label for="name">Notizbuch Name</label>
     <input class="form-control" type="text" name="name">
-    <input class="btn btn-success my-1" type="submit" value="Hinzuf&uuml;gen">
+    <input class="btn btn-success my-1" type="submit" value="Umbennenen">
 </form>
 </div>
 

@@ -20,6 +20,18 @@ class NotebooksController extends Controller
         $dataInput = $request->all();
         Notebook::create($dataInput);
 
-        return 'success';
+        return redirect('/notebooks');
+    }
+
+    public function edit($id){
+        $notebook = Notebook::where('id',$id)->first();
+        return view('notebooks.editNotebook', ['notebook' => $notebook]);
+    }
+
+    public function update(Request $request,$id){
+        $notebook = Notebook::where('id',$id)->first();
+        $notebook->update($request->all());
+
+        return redirect('/notebooks');
     }
 }
