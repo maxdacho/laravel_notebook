@@ -12,7 +12,8 @@
 </div>
 <div class="container col-9 my-5">
 <h1>Ein neues Notizbuch erstellen</h1>
-<form action="">
+<form action="/notebooks" method="POST">
+  {{csrf_field()}}
     <label for="name">Notizbuch Name</label>
     <input class="form-control" type="text" name="name">
     <input class="btn btn-success my-1" type="submit" value="Done">

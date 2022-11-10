@@ -23,6 +23,7 @@ Route::get('/landingpage',function(){
 });
 
 Route::get('/notebooks', [NotebooksController::class, 'index']);
+Route::post('/notebooks', [NotebooksController::class, 'store']);
 Route::get('/notebooks/create', [NotebooksController::class, 'create']);
 
 Route::get('/notes',function(){

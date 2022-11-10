@@ -15,4 +15,11 @@ class NotebooksController extends Controller
     public function create(){
         return view('notebooks.createNotebook');
     }
+
+    public function store(Request $request){
+        $dataInput = $request->all();
+        Notebook::create($dataInput);
+
+        return 'success';
+    }
 }
