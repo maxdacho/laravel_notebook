@@ -35,3 +35,7 @@ Route::delete('/notebooks/{notebooks}', [NotebooksController::class, 'delete']);
 Route::get('/notes',function(){
     return view('notes/notes');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -13,7 +13,9 @@
 <div class="container col-6 my-5">
     Herlich Willkommen bei der Notebook App von Maximilian Dacho
     <br>
+    <a href="/notebooks">
     <button class="btn btn-warning">Zum Notizbuch</button>
+    </a>
 </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
