@@ -27,6 +27,8 @@ Route::post('/notebooks', [NotebooksController::class, 'store']);
 Route::get('/notebooks/create', [NotebooksController::class, 'create']);
 Route::get('/notebooks/{notebooks}', [NotebooksController::class, 'edit']);
 Route::put('/notebooks/{notebooks}', [NotebooksController::class, 'update']);
+Route::delete('/notebooks/{notebooks}', [NotebooksController::class, 'delete']);
+
 
 
 

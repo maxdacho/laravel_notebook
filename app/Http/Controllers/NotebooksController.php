@@ -34,4 +34,11 @@ class NotebooksController extends Controller
 
         return redirect('/notebooks');
     }
+
+    public function delete($id){
+        $notebook = Notebook::where('id',$id)->first();
+        $notebook->delete();
+    
+        return redirect('/notebooks');
+    }
 }

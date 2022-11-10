@@ -26,7 +26,11 @@
   <a href="/notebooks/{{$notebook->id}}">
     <button class="btn btn-primary">Edit</button>
 </a>
-    <button class="btn btn-danger">Delete</button>
+<form action="/notebooks/{{$notebook->id}}" method="POST">
+{{csrf_field()}}
+{{method_field('DELETE')}}
+    <input class="btn btn-danger" type="submit" value="Delete">
+</from>
 </div>
 @endforeach
 </div>
