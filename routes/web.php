@@ -14,20 +14,24 @@ use App\Http\Controllers\NotebooksController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::group(['middleware'=>'auth'],function(){
+
+    Route::get('/', function () {
+        return view('landingpage');
+    });
+    
+    Route::get('/notebooks', [NotebooksController::class, 'index']);
+    Route::post('/notebooks', [NotebooksController::class, 'store']);
+    Route::get('/notebooks/create', [NotebooksController::class, 'create']);
+    Route::get('/notebooks/{notebooks}', [NotebooksController::class, 'edit']);
+    Route::put('/notebooks/{notebooks}', [NotebooksController::class, 'update']);
+    Route::delete('/notebooks/{notebooks}', [NotebooksController::class, 'delete']);
+
 });
 
-Route::get('/landingpage',function(){
-    return view('landingpage');
-});
 
-Route::get('/notebooks', [NotebooksController::class, 'index']);
-Route::post('/notebooks', [NotebooksController::class, 'store']);
-Route::get('/notebooks/create', [NotebooksController::class, 'create']);
-Route::get('/notebooks/{notebooks}', [NotebooksController::class, 'edit']);
-Route::put('/notebooks/{notebooks}', [NotebooksController::class, 'update']);
-Route::delete('/notebooks/{notebooks}', [NotebooksController::class, 'delete']);
 
 
 
@@ -35,6 +39,10 @@ Route::delete('/notebooks/{notebooks}', [NotebooksController::class, 'delete']);
 Route::get('/notes',function(){
     return view('notes/notes');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
