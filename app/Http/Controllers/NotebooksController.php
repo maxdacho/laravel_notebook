@@ -19,6 +19,13 @@ class NotebooksController extends Controller
         return view('notebooks.createNotebook');
     }
 
+    public function show($id){
+        $notebook = Notebook::findOrFail($id);
+
+        $notes = $notebook->notes;
+        return view('notes.notes',compact('notes'));
+    }
+
     public function store(Request $request){
         $dataInput = $request->all();
         $user = Auth::user();

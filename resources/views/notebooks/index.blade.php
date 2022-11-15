@@ -41,10 +41,12 @@
 @foreach($notebooks as $notebook) 
 <div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
 <h1>
+  <a href="{{route("notebooks.show",$notebook->id)}}">
 {{$notebook->name}}
+</a>
 </h1>
   <br>
-  <a href="/notebooks/{{$notebook->id}}">
+  <a href="{{route("notebooks.edit",$notebook->id)}}">
     <button class="btn btn-primary">Edit</button>
 </a>
 <form action="/notebooks/{{$notebook->id}}" method="POST">

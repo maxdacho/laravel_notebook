@@ -25,17 +25,14 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/notebooks', [NotebooksController::class, 'index']);
     Route::post('/notebooks', [NotebooksController::class, 'store']);
     Route::get('/notebooks/create', [NotebooksController::class, 'create']);
-    Route::get('/notebooks/{notebooks}', [NotebooksController::class, 'edit']);
+    Route::get('/notebooks/{notebooks}', [NotebooksController::class, 'show'])->name('notebooks.show');
+    Route::get('/notebooks/{notebooks}/edit', [NotebooksController::class, 'edit'])->name('notebooks.edit');
     Route::put('/notebooks/{notebooks}', [NotebooksController::class, 'update']);
     Route::delete('/notebooks/{notebooks}', [NotebooksController::class, 'delete']);
 
+    Route::resource('notes','NotesController');
+
 });
-
-
-
-
-
-
 
 
 Auth::routes();

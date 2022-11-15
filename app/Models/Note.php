@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Notebook extends Model
+class Note extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+    protected $fillable = ['title', 'body'];
 
-    public function notes(){
-        return $this->hasMany(Note::class);
+    public function notebook(){
+        return $this->belongsTo(Notebook::class);
     }
 }

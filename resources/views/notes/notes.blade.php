@@ -31,65 +31,29 @@
 </div>
 <div class="container col-9 my-5" style="display:flex; justify-content:space-between">
   <div>Deine Notizen</div>
+  <a href="{{route('notes.createNote')}}">
   <button class="btn btn-success">Neue Notiz</button>
+  </a>
 </div>
 
 <div class="container col-9 my-5">
+  @foreach($notes as $note)
 <div class="note-item my-2" style="border: 1px solid #000; padding:2rem;">
 <a href="">  
 <h1>
-Notiz 1 Überschrift
+{{$note->title}}
 </h1>
 </a>
 <p>
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
+{{$note->body}}</p>
   <br>
     <button class="btn btn-primary">Edit</button>
     <button class="btn btn-danger">Delete</button>
 </div>
-
-<div class="note-item my-2" style="border: 1px solid #000; padding:2rem;">
-<a href="">
-<h1>
-Notiz 2 Überschrift
-</h1>
-</a>
-<p>
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
-<br>
-  <button class="btn btn-primary">Edit</button>
-  <button class="btn btn-danger">Delete</button>
+@endforeach
 </div>
 
-<div class="note-item my-2" style="border: 1px solid #000; padding:2rem;">
-<a href="">
-<h1>
-Notiz 3 Überschrift
-</h1>
-</a>
-<p>
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
-<br>
-  <button class="btn btn-primary">Edit</button>
-  <button class="btn btn-danger">Delete</button>
-</div>
 
-<div class="note-item my-2" style="border: 1px solid #000; padding:2rem;">
-<a href="">
-<h1>
-Notiz 4 Überschrift
-</h1>
-</a>
-<p>
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-</p>
-<br>
-  <button class="btn btn-primary">Edit</button>
-  <button class="btn btn-danger">Delete</button>
-</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>
