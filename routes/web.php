@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotebooksController;
+use App\Http\Controllers\NotesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +33,9 @@ Route::group(['middleware'=>'auth'],function(){
     Route::delete('/notebooks/{notebooks}', [NotebooksController::class, 'delete']);
 
     Route::resource('notes','NotesController');
+    Route::post('/notes', [NotesController::class, 'store']);
+    Route::get('/notes/{notebookId}/createNote', [NotesController::class, 'createNote'])->name('notes.createNote');
+
 
 });
 

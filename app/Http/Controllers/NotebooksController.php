@@ -23,7 +23,7 @@ class NotebooksController extends Controller
         $notebook = Notebook::findOrFail($id);
 
         $notes = $notebook->notes;
-        return view('notes.notes',compact('notes'));
+        return view('notes.notes',compact('notes','notebook'));
     }
 
     public function store(Request $request){

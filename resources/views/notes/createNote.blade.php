@@ -29,30 +29,18 @@
       {{csrf_field()}}
       </form>
 </div>
-<div class="container col-9 my-5" style="display:flex; justify-content:space-between">
-  <div>Deine Notizen</div>
-  <a href="{{route('notes.createNote',$notebook->id)}}">
-  <button class="btn btn-success">Neue Notiz</button>
-  </a>
-</div>
-
 <div class="container col-9 my-5">
-  @foreach($notes as $note)
-<div class="note-item my-2" style="border: 1px solid #000; padding:2rem;">
-<a href="">  
-<h1>
-{{$note->title}}
-</h1>
-</a>
-<p>
-{{$note->body}}</p>
-  <br>
-    <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-danger">Delete</button>
+<h1>Eine neue Notiz erstellen</h1>
+<form action="{{route('notes.store')}}" method="POST">
+  {{csrf_field()}}
+    <label for="title">Titel</label>
+    <input class="form-control" type="text" name="title">
+    <label for="body">Notiz</label>
+    <input class="form-control" type="text" name="body">
+    <input type="hidden" name="notebook_id" value="{{$id}}">
+    <input class="btn btn-success my-1" type="submit" value="Hinzuf&uuml;gen">
+</form>
 </div>
-@endforeach
-</div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
