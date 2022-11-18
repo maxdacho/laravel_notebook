@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Notebook App</title>
+    <link href="/css/general.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
@@ -36,6 +37,11 @@
     <label for="name">Notizbuch Name</label>
     <input class="form-control" type="text" name="name">
     <input class="btn btn-success my-1" type="submit" value="Hinzuf&uuml;gen">
+    @error('name')
+    <div class="border-message">
+<p class="error-text">{{$message}}</p>
+</div>
+@enderror
 </form>
 </div>
 

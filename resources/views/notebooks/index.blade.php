@@ -31,6 +31,9 @@
 </div>
 <div class="container col-9 my-5" style="display:flex; justify-content:space-between">
   <div>Deine Notizb&uuml;cher</div>
+  <div>
+    <input type="text">  
+  </div>
   <a href="/notebooks/create">
   <button class="btn btn-success">Notizbuch anlegen</button>
   </a>

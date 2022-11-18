@@ -1,0 +1,8 @@
+.border-message{
+    color: white;
+}
+
+.error-text{
+    border: 1px solid red;
+    background: red;
+}

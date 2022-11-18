@@ -39,9 +39,14 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        $inputData = $request->all();
+        $this->validate($request,[
+            'title'=>'required',
+            'body'=>'required'
 
-        $note = Note::create($inputData);
+        ]);
+        
+    
+        $note = Note::create($request->all());
         
         return redirect('/notebooks/'.$note->notebook_id);
 
@@ -80,6 +85,10 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'title'=>'required'
+        ]);
+        
         $inputData = $request->all();
 
         $note = Note::find($id);
