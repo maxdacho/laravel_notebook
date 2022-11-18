@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use App\Models\Note;
 use App\Http\Requests;
 
@@ -16,7 +18,7 @@ class NotesController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -39,9 +41,10 @@ class NotesController extends Controller
     {
         $inputData = $request->all();
 
-        Note::create($inputData);
+        $note = Note::create($inputData);
+        
+        return redirect('/notebooks/'.$note->notebook_id);
 
-        return redirect()->route('notebooks.index');
     }
 
     /**
@@ -63,7 +66,8 @@ class NotesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $note = Note::find($id);
+        return view('notes.editNote', compact('note'));
     }
 
     /**
@@ -75,7 +79,12 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $inputData = $request->all();
+
+        $note = Note::find($id);
+        $note->update($inputData);
+
+        return redirect('/notebooks/'.$note->notebook_id);
     }
 
     /**
@@ -86,7 +95,9 @@ class NotesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $note = Note::destroy($id);
+        //return redirect('/notebooks/'.$note->notebook_id);
+        return back();
     }
 
     public function createNote($notebookId){

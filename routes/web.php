@@ -24,7 +24,7 @@ Route::group(['middleware'=>'auth'],function(){
         return view('landingpage');
     });
     
-    Route::get('/notebooks', [NotebooksController::class, 'index']);
+    Route::get('/notebooks', [NotebooksController::class, 'index'])->name('notebooks.index');
     Route::post('/notebooks', [NotebooksController::class, 'store']);
     Route::get('/notebooks/create', [NotebooksController::class, 'create']);
     Route::get('/notebooks/{notebooks}', [NotebooksController::class, 'show'])->name('notebooks.show');
@@ -32,9 +32,13 @@ Route::group(['middleware'=>'auth'],function(){
     Route::put('/notebooks/{notebooks}', [NotebooksController::class, 'update']);
     Route::delete('/notebooks/{notebooks}', [NotebooksController::class, 'delete']);
 
-    Route::resource('notes','NotesController');
-    Route::post('/notes', [NotesController::class, 'store']);
+
+    Route::post('/notes', [NotesController::class, 'store'])->name('notes.store');
+    Route::get('/notes/{note}/edit', [NotesController::class, 'edit'])->name('notes.edit');
+    Route::put('/notes/{note}/update', [NotesController::class, 'update'])->name('notes.update');
     Route::get('/notes/{notebookId}/createNote', [NotesController::class, 'createNote'])->name('notes.createNote');
+    Route::delete('/notes/{note}', [NotesController::class, 'destroy'])->name('notes.destroy');
+
 
 
 });
