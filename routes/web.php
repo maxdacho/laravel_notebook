@@ -38,6 +38,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::put('/notes/{note}/update', [NotesController::class, 'update'])->name('notes.update');
     Route::get('/notes/{notebookId}/createNote', [NotesController::class, 'createNote'])->name('notes.createNote');
     Route::delete('/notes/{note}', [NotesController::class, 'destroy'])->name('notes.destroy');
+    Route::get('/notes/{note}', [NotesController::class, 'show'])->name('notes.show');
+
 
 
 
