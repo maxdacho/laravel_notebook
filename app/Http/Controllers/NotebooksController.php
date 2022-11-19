@@ -69,4 +69,33 @@ class NotebooksController extends Controller
     
         return redirect('/notebooks');
     }
+
+    public function search(Request $request){
+        
+        $output = "";
+        $notebook=Notebook::where('name','Like','%'.$request->search.'%')->get();
+
+        foreach($notebook as $notebook){
+            $output.=
+            '<tr>
+                <td>
+                '.$notebook->name.'
+                </td>
+
+                <td>
+                '.'
+                <button class="btn btn-primary">'.'Edit</button>
+                '.'
+                </td>
+
+                <td>
+                '.'
+                <input class="btn btn-danger" type="submit" value="Delete">
+                '.'
+                </td>
+            </tr>';
+        }
+
+        return response($output);
+    }
 }

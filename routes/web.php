@@ -24,6 +24,8 @@ Route::group(['middleware'=>'auth'],function(){
         return view('landingpage');
     });
     
+    Route::get('/search', [NotebooksController::class, 'search']);
+    
     Route::get('/notebooks', [NotebooksController::class, 'index'])->name('notebooks.index');
     Route::post('/notebooks', [NotebooksController::class, 'store']);
     Route::get('/notebooks/create', [NotebooksController::class, 'create']);
