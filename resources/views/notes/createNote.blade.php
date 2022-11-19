@@ -12,7 +12,7 @@
     <h1>Laravel Notebook App</h1>  
     <div class="my-3">
       @if(Auth::user())
-      <span>Willkommen {{Auth::user()->name}}</span>
+      <span>Willkommen <b>{{Auth::user()->name}}</b></span>
       @else
       <a href="/login">Login</a>
       <br>

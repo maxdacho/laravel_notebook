@@ -12,7 +12,7 @@
     <h1>Laravel Notebook App</h1>  
     <div class="my-3">
       @if(Auth::user())
-      <span>Willkommen {{Auth::user()->name}}</span>
+      <span>Willkommen <b>{{Auth::user()->name}}</b></span>
       @else
       <a href="/login">Login</a>
       <br>
@@ -31,30 +31,30 @@
       </form>
 </div>
 <div class="container col-9 my-5" style="display:flex; justify-content:space-between">
-  <div>Deine Notizen</div>
+  <div><h2><b>Ihre Notizen</b></h2></div>
+  <a href="{{route('notebooks.index')}}">
+  <button class="btn btn-info">Zur&uuml;ck zu den Notizb&uuml;chern</button>
+  </a>
   <a href="{{route('notes.createNote',$notebook->id)}}">
   <button class="btn btn-success">Neue Notiz</button>
   </a>
 </div>
 
-<div class="container col-9 my-5">
+<div class="container col-9 my-5" style="display:flex; flex-wrap:wrap; justify-content:center">
   @foreach($notes as $note)
-<div class="note-item my-2" style="border: 1px solid #000; padding:2rem;">
+<div class="note-item" style="border-radius:10px; background:white; padding:4rem; margin:0.5rem;">
 <a href="{{route('notes.show', $note->id)}}">  
-<h1>
+<h1 class="notebook-title">
 {{$note->title}}
 </h1>
 </a>
-<p>
-{{$note->body}}</p>
-  <br>
   <a href="{{route('notes.edit',$note->id)}}">
-    <button class="btn btn-primary">Edit</button>
+    <button class="btn btn-primary my-3">Bearbeiten</button>
 </a>
 <form action="{{route('notes.destroy',$note->id)}}" method="POST">
 {{csrf_field()}}
 {{method_field('DELETE')}}
-<input class="btn btn-danger" type="submit" value="Delete">
+<input class="btn btn-danger" type="submit" value="Entfernen">
 </form>
 </div>
 @endforeach

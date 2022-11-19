@@ -12,7 +12,7 @@
     <h1>Laravel Notebook App</h1>  
     <div class="my-3">
       @if(Auth::user())
-      <span>Willkommen {{Auth::user()->name}}</span>
+      <span>Willkommen <b>{{Auth::user()->name}}</b></span>
       @else
       <a href="/login">Login</a>
       <br>
@@ -31,7 +31,10 @@
       </form>
 </div>
 <div class="container col-9 my-5">
-<h2>{{$note->title}}</h2>
+<a href="{{route('notebooks.index')}}">
+  <button class="btn btn-info my-3">Zur&uuml;ck zu den Notizen</button>
+  </a>
+<h1>{{$note->title}}</h1>
 
 <p>
 {{$note->body}}
