@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Notebook App</title>
+    <link href="/css/general.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
@@ -30,7 +31,9 @@
       </form>
 </div>
 <div class="container col-6 my-5">
-    Herlich Willkommen bei der Notebook App von Maximilian Dacho
+  <h1>
+    Herzlich Willkommen bei der Notebook App von Maximilian Dacho, ON21
+</h1>
     <br>
     <a href="/notebooks">
     <button class="btn btn-warning">Zum Notizbuch</button>

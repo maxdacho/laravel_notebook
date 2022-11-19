@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Notebook App</title>
+    <link href="/css/general.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
@@ -12,7 +13,7 @@
     <h1>Laravel Notebook App</h1>  
     <div class="my-3">
       @if(Auth::user())
-      <span>Willkommen {{Auth::user()->name}}</span>
+      <span>Willkommen <b>{{Auth::user()->name}}</b></span>
       @else
       <a href="/login">Login</a>
       <br>
@@ -31,9 +32,9 @@
       </form>
 </div>
 <div class="container col-9 my-5" style="display:flex; justify-content:space-between">
-  <div>Deine Notizb&uuml;cher</div>
+  <div><h2><b>Ihre Notizb&uuml;cher</b></h2></div>
   <div class="search">
-    <input type="search" name="search" id="search" placeholder="Suche nach Notizen" class="form-control">  
+    <input type="search" name="search" id="search" placeholder="Nach Notizen suchen" class="form-control">  
   </div>
   <a href="/notebooks/create">
   <button class="btn btn-success">Notizbuch anlegen</button>
@@ -41,30 +42,28 @@
 </div>
 
 
+<div class="container col-9 my-5" style="display:flex; flex-wrap:wrap; justify-content:center;">
 
-<div class="container col-9 my-5" style="display:flex; justify-content:space-between">
-<table>
 <tbody class="alldata">
 @foreach($notebooks as $notebook) 
-<div class="notebook-item" style="border: 1px solid #000; padding:2rem;">
-<h1>
-  <a href="{{route("notebooks.show",$notebook->id)}}">
+<div class="notebook-item" style="border-radius:10px; background:white; padding:4rem; margin:0.5rem;">
+<a href="{{route("notebooks.show",$notebook->id)}}">
+<h1 class="notebook-title">
 {{$notebook->name}}
-</a>
 </h1>
-  <br>
+</a>
   <a href="{{route("notebooks.edit",$notebook->id)}}">
-    <button class="btn btn-primary">Edit</button>
+    <button class="btn btn-primary my-3">Bearbeiten</button>
 </a>
 <form action="/notebooks/{{$notebook->id}}" method="POST">
 {{csrf_field()}}
 {{method_field('DELETE')}}
-    <input class="btn btn-danger" type="submit" value="Delete">
+    <input class="btn btn-danger" type="submit" value="Entfernen">
 </form>
 </div>
 @endforeach
 </tbody>
-</table>
+
 <table>
 <tbody id="content" class="searchdata"></tbody>
 </table>
