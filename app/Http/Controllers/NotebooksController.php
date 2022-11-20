@@ -77,23 +77,34 @@ class NotebooksController extends Controller
 
         foreach($notebook as $notebook){
             $output.=
-            '<tr>
-                <td>
-                '.$notebook->name.'
-                </td>
-
-                <td>
-                '.'
-                <button class="btn btn-primary">'.'Edit</button>
-                '.'
-                </td>
-
-                <td>
-                '.'
-                <input class="btn btn-danger" type="submit" value="Delete">
-                '.'
-                </td>
-            </tr>';
+            
+            '<div class="notebook-item" style="border-radius:10px; background:white; padding:4rem; margin:0.5rem;">
+            '.'
+            <a href="/notebooks/'.$notebook->id.'">
+            '.'
+            <h1 class="notebook-title">
+            '.$notebook->name.'
+            '.'
+            </h1>
+            '.'
+            </a>
+            <a href="/notebooks/'.$notebook->id.'/edit">
+            '.'
+              <button class="btn btn-primary my-3">Bearbeiten</button>
+              '.'
+            </a>
+            <form action="/notebooks/'.$notebook->id.'" method="POST">'
+            .csrf_field().'
+            '.'
+            '.method_field('DELETE').'
+            '.'
+            <input class="btn btn-danger" type="submit" value="Entfernen">
+            </form>
+            '.'
+          </div>'
+            
+            
+            ;
         }
 
         return response($output);

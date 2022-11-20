@@ -43,30 +43,31 @@
 
 
 <div class="container col-9 my-5" style="display:flex; flex-wrap:wrap; justify-content:center;">
-
-<tbody class="alldata">
-@foreach($notebooks as $notebook) 
-<div class="notebook-item" style="border-radius:10px; background:white; padding:4rem; margin:0.5rem;">
-<a href="{{route("notebooks.show",$notebook->id)}}">
-<h1 class="notebook-title">
-{{$notebook->name}}
-</h1>
-</a>
-  <a href="{{route("notebooks.edit",$notebook->id)}}">
-    <button class="btn btn-primary my-3">Bearbeiten</button>
-</a>
-<form action="/notebooks/{{$notebook->id}}" method="POST">
-{{csrf_field()}}
-{{method_field('DELETE')}}
-    <input class="btn btn-danger" type="submit" value="Entfernen">
-</form>
+  <div class="alldata">
+  @foreach($notebooks as $notebook) 
+    <div class="notebook-item" style="border-radius:10px; background:white; padding:4rem; margin:0.5rem;">
+      <a href="{{route("notebooks.show",$notebook->id)}}">
+      <h1 class="notebook-title">
+      {{$notebook->name}}
+      </h1>
+      </a>
+      <a href="{{route("notebooks.edit",$notebook->id)}}">
+        <button class="btn btn-primary my-3">Bearbeiten</button>
+      </a>
+      <form action="/notebooks/{{$notebook->id}}" method="POST">
+      {{csrf_field()}}
+      {{method_field('DELETE')}}
+        <input class="btn btn-danger" type="submit" value="Entfernen">
+      </form>
+    </div>
+    @endforeach
 </div>
-@endforeach
-</tbody>
 
-<table>
-<tbody id="content" class="searchdata"></tbody>
-</table>
+<div id="content" class="searchdata"></div>
+
+
+
+
 
 
 </div>
@@ -80,9 +81,10 @@
         $value=$(this).val();
         if($value){
           $('.alldata').hide();
+          console.log($('.alldata'));
           $('.searchdata').show();
         }
-        elese{
+        else{
           $('.alldata').show();
           $('.searchdata').hide();
         }

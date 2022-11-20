@@ -31,7 +31,7 @@
       </form>
 </div>
 <div class="container col-9 my-5">
-<a href="{{route('notebooks.index')}}">
+<a href="/notebooks/{{$note->notebook_id}}">
   <button class="btn btn-info my-3">Zur&uuml;ck zu den Notizen</button>
   </a>
 <h1>{{$note->title}}</h1>
