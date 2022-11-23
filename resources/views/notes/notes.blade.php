@@ -31,7 +31,8 @@
       </form>
 </div>
 <div class="container col-9 my-5" style="display:flex; justify-content:space-between">
-  <div><h2><b>Ihre Notizen</b></h2></div>
+  <div><h2><b>      {{$notebook->name}}
+</b></h2></div>
   <a href="{{route('notebooks.index')}}">
   <button class="btn btn-info">Zur&uuml;ck zu den Notizb&uuml;chern</button>
   </a>

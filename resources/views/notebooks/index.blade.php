@@ -43,7 +43,7 @@
 
 
 <div class="container col-9 my-5" style="display:flex; flex-wrap:wrap; justify-content:center;">
-  <div class="alldata">
+  <div class="alldata" style="display:flex; flex-wrap:wrap; justify-content:center;">
   @foreach($notebooks as $notebook) 
     <div class="notebook-item" style="border-radius:10px; background:white; padding:4rem; margin:0.5rem;">
       <a href="{{route("notebooks.show",$notebook->id)}}">
@@ -63,7 +63,7 @@
     @endforeach
 </div>
 
-<div id="content" class="searchdata"></div>
+<div id="content" class="searchdata" style="display:flex; flex-wrap:wrap; justify-content:center;"></div>
 
 
 
