@@ -10,7 +10,8 @@ class Notebook extends Model
     use HasFactory;
     protected $fillable = ['name'];
 
-    public function notes(){
+    public function notes()
+    {
         return $this->hasMany(Note::class);
     }
 }

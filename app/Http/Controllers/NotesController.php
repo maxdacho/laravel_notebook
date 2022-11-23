@@ -18,7 +18,6 @@ class NotesController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -37,19 +36,20 @@ class NotesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+     //Speichern von Notizen
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'title'=>'required',
-            'body'=>'required'
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
 
         ]);
-        
-    
-        $note = Note::create($request->all());
-        
-        return redirect('/notebooks/'.$note->notebook_id);
 
+
+        $note = Note::create($request->all());
+
+        return redirect('/notebooks/' . $note->notebook_id);
     }
 
     /**
@@ -58,6 +58,8 @@ class NotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Anzeigen von Notizen
     public function show($id)
     {
         $note = Note::find($id);
@@ -70,6 +72,8 @@ class NotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Bearbeiten von Notizen
     public function edit($id)
     {
         $note = Note::find($id);
@@ -83,18 +87,20 @@ class NotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Aktualisieren von Notizen
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'title'=>'required'
+        $this->validate($request, [
+            'title' => 'required'
         ]);
-        
+
         $inputData = $request->all();
 
         $note = Note::find($id);
         $note->update($inputData);
 
-        return redirect('/notebooks/'.$note->notebook_id);
+        return redirect('/notebooks/' . $note->notebook_id);
     }
 
     /**
@@ -103,14 +109,17 @@ class NotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     //Löschen von Notizen
     public function destroy($id)
     {
         $note = Note::destroy($id);
         //return redirect('/notebooks/'.$note->notebook_id);
         return back();
     }
-
-    public function createNote($notebookId){
-        return view('notes.createNote')->with('id',$notebookId);
+    //Erstellen von Notizen
+    public function createNote($notebookId)
+    {
+        return view('notes.createNote')->with('id', $notebookId);
     }
 }

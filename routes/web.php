@@ -18,14 +18,14 @@ use App\Http\Controllers\NotesController;
 
 
 
-Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', function () {
         return view('landingpage');
     });
-    
+
     Route::get('/search', [NotebooksController::class, 'search']);
-    
+
     Route::get('/notebooks', [NotebooksController::class, 'index'])->name('notebooks.index');
     Route::post('/notebooks', [NotebooksController::class, 'store']);
     Route::get('/notebooks/create', [NotebooksController::class, 'create']);
@@ -41,10 +41,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/notes/{notebookId}/createNote', [NotesController::class, 'createNote'])->name('notes.createNote');
     Route::delete('/notes/{note}', [NotesController::class, 'destroy'])->name('notes.destroy');
     Route::get('/notes/{note}', [NotesController::class, 'show'])->name('notes.show');
-
-
-
-
 });
 
 
