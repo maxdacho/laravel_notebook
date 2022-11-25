@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotebooksController;
 use App\Http\Controllers\NotesController;
+use Illuminate\Support\Facades\Auth;
+
 
 
 /*
